@@ -152,7 +152,7 @@ href="https://caveduck.io/character-info/2289c180-b275-403d-b67d-ddbd439b48c7" c
             <div class="close-btn" data-tab="links-tab"><i class="fas fa-times"></i></div>
         </div>
 
-    </div>
+        </div>
     <script src="script.js"></script>
 
     <script src="https://elbachira.github.io/bots.js?v=1.0"></script> 
@@ -168,4 +168,23 @@ href="https://caveduck.io/character-info/2289c180-b275-403d-b67d-ddbd439b48c7" c
                 BOTS_LIST.forEach(bot => {
                     if (!bot.nombre.includes(nombreDelBotActual)) {
                         const botHtml = `
-                     
+                            <a href="${bot.url}" class="char-icon">
+                                <img src="${bot.imagen}" alt="${bot.nombre}">
+                                <span class="char-name">${bot.nombre}</span>
+                            </a>
+                        `;
+
+                        if (bot.genero === 'masculino' && masculinosContainer) {
+                            masculinosContainer.innerHTML += botHtml;
+                        } else if (bot.genero === 'femenino' && femeninosContainer) {
+                            femeninosContainer.innerHTML += botHtml;
+                        }
+                    }
+                });
+            } else {
+                console.log("La lista BOTS_LIST no se ha cargado correctamente.");
+            }
+        });
+    </script>
+</body>
+</html>
